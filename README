@@ -1,0 +1,4 @@
+This app is used to demostrate how to connect mongodb in play 2.0 framework via morphia.
+
+PS:Please inspect these three files:
+

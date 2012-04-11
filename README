@@ -5,8 +5,9 @@ PS:Please inspect these three files,
 	app/controllers/Application.java
 	project/Build.scala
 
-One more thing, after download the source code, do remember add the mongodb-java-driver and morphia jar files into 
-the class path
+One more thing, after download the source code, do remember add the mongodb-java-driver and morphia jar files into project class path.
+
+
 
 after the Build.scala has loaded, 
 

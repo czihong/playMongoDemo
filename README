@@ -8,5 +8,9 @@ PS:Please inspect these three files,
 One more thing, after download the source code, do remember add the mongodb-java-driver and morphia jar files into the class path
 
 after the Build.scala has loaded, 
-morphia jar file can be found at {play2-home-dir}/repository/cache/com.google.code.morphia/morphia/jars
-mongo-java-driver jar file can be found at {play2-home-dir}/repository/cache/org.mongodb/mongo-java-driver/jars
+
+morphia jar file at 
+{play2-home-dir}/repository/cache/com.google.code.morphia/morphia/jars
+
+mongo-java-driver jar file at 
+{play2-home-dir}/repository/cache/org.mongodb/mongo-java-driver/jars

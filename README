@@ -1,4 +1,8 @@
 This app is used to demostrate how to connect mongodb in play 2.0 framework via morphia.
 
-PS:Please inspect these three files:
+PS:Please inspect these three files, 
+	app/models/Group.java,
+	app/controllers/Application.java
+	project/Build.scala
 
+One more thing, after download the source code, do remember add the mongodb-java-driver and morphia jar files into the class path

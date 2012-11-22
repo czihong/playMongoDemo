@@ -14,7 +14,7 @@ import play.mvc.*;
 import views.html.*;
 
 public class Application extends Controller {
-  
+  // Test
 	public static Result index() throws Exception {  
     Morphia morphia = new Morphia();  
     Mongo mongo = new Mongo("127.0.0.1",27017);  

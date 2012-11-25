@@ -1,7 +1,27 @@
-@(message: String)
+@(groups: List[Group], groupForm: Form[Group]) 
 
-@main("Welcome to Play 2.0") {
-    
-    @play20.welcome(message, style = "Java")
-    
+@import helper._
+
+@main("Groups") {
+  
+  <h1>@groups.size() task(s)</h1>
+  
+  <ul>
+    @for(group <- groups) {
+      <li>@group.groupName / @group.date
+      @form(routes.Application.deleteGroup(group.id.toString())) { 
+         <input type="submit" value="Delete"> 
+      }
+      </li>
+    }
+  </ul>
+  
+  <h2>Add a new task</h2>
+  
+  @form(routes.Application.newGroup()) {
+     @inputText(groupForm("groupName")) @inputDate(groupForm("date"))
+     <input type="submit" value="Create">
+  
+  } 
+
 }

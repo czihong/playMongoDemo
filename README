@@ -7,12 +7,15 @@ PS:Please inspect these three files,
 
 One more thing, after download the source code, do remember add the mongodb-java-driver and morphia jar files into project class path.
 
+1) after the Build.scala has loaded, 
 
+   morphia jar file at 
+   {play2-home-dir}/repository/cache/com.google.code.morphia/morphia/jars
 
-after the Build.scala has loaded, 
+   mongo-java-driver jar file at 
+   {play2-home-dir}/repository/cache/org.mongodb/mongo-java-driver/jars
+   
+OR
 
-morphia jar file at 
-{play2-home-dir}/repository/cache/com.google.code.morphia/morphia/jars
+2) separately download the jars and put them in the {project}/lib folder
 
-mongo-java-driver jar file at 
-{play2-home-dir}/repository/cache/org.mongodb/mongo-java-driver/jars

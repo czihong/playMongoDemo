@@ -1,4 +1,4 @@
-This app is used to show how to connect mongodb in play 2.0 framework via morphia.
+This app is used to show how to connect mongodb in play 2.0.4 framework via morphia.
 
 PS:Please inspect these three files, 
 	app/models/Group.java,

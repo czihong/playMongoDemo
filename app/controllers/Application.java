@@ -1,40 +1,35 @@
 package controllers;
 
 import models.Group;
-
-import com.google.code.morphia.Datastore;
-import com.google.code.morphia.Morphia;
-import com.google.code.morphia.mapping.Mapper;
-import com.google.code.morphia.query.UpdateOperations;
-import com.mongodb.Mongo;
-
-import play.*;
-import play.mvc.*;
-
-import views.html.*;
+import play.data.Form;
+import play.mvc.Controller;
+import play.mvc.Result;
 
 public class Application extends Controller {
-  // Test 111 222
-	public static Result index() throws Exception {  
-    Morphia morphia = new Morphia();  
-    Mongo mongo = new Mongo("127.0.0.1",27017);  
-    Datastore ds = morphia.createDatastore(mongo, "test");  
-    ds.ensureIndexes();   
-    ds.ensureCaps();  
-      
-    Group me = new Group();
-    me.groupName = "test group";  
-    ds.save(me);  
-    Group e3 = ds.find(Group.class).get();   
-    UpdateOperations<Group> ops = ds.createUpdateOperations(Group.class).set("groupName", "hello world");  
-    //UpdateOperations<Group> ops = ds.createUpdateOperations(Group.class).unset("name");  
-    ds.update(ds.createQuery(Group.class).field(Mapper.ID_KEY).equal(e3.id), ops);  
-    String result = "";
-    for(Group me2 : ds.find(Group.class)){  
-        System.out.println(me2.groupName);  
-        result = me2.groupName;
-    }  
-    return ok(result);
-	} 
-  
+	static Form<Group> groupForm = form(Group.class);
+
+	public static Result index() throws Exception {
+		// redirect to the "group Result
+		return redirect(routes.Application.group());
+	}
+
+	public static Result group() {
+		return ok(views.html.index.render(Group.all(), groupForm));
+	}
+
+	public static Result newGroup() {
+		Form<Group> filledForm = groupForm.bindFromRequest();
+		if(filledForm.hasErrors()) {
+			return badRequest(views.html.index.render(Group.all(), filledForm));
+		} else {
+			Group.create(filledForm.get());
+			return redirect(routes.Application.group());  
+		}
+	}
+	
+	public static Result deleteGroup(String id) {
+		Group.delete(id);
+		return redirect(routes.Application.group());
+	}
+
 }
